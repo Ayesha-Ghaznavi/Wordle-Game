@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-class consolebutton
+class consolebuttons
 {
 public:
     enum ButtonType
@@ -16,7 +16,7 @@ public:
 
     bool MouseCollides(sf::Mouse mouse, sf::RenderWindow& window);
 
-    Button(sf::Vector2f size, sf::Vector2f pos, sf::Color fillColour, sf::Text oText, ButtonType type);
+    consolebuttons(sf::Vector2f size, sf::Vector2f pos, sf::Color fillColour, sf::Text oText, ButtonType type);
 
 private:
     ButtonType buttonType;
@@ -24,22 +24,22 @@ private:
     sf::Text text;
 };
 
-sf::String consolebutton::GetText()
+sf::String consolebuttons::GetText()
 {
     return text.getString();
 }
 
-consolebutton::ButtonType Button::GetButtonType()
+consolebuttons::ButtonType consolebuttons::GetButtonType()
 {
     return buttonType;
 }
 
-void consolebutton::SetColour(sf::Color fillColour)
+void consolebuttons::SetColour(sf::Color fillColour)
 {
     rectShape.setFillColor(fillColour);
 }
 
-bool Button::MouseCollides(sf::Mouse mouse, sf::RenderWindow& window)
+bool consolebuttons::MouseCollides(sf::Mouse mouse, sf::RenderWindow& window)
 {
     sf::FloatRect fRect = rectShape.getGlobalBounds();
     sf::Vector2i mousePosition = mouse.getPosition(window);
@@ -52,13 +52,13 @@ bool Button::MouseCollides(sf::Mouse mouse, sf::RenderWindow& window)
     else return false;
 }
 
-void consolebutton::DrawObject(sf::RenderWindow& window)
+void consolebuttons::DrawObject(sf::RenderWindow& window)
 {
     window.draw(rectShape);
     window.draw(text);
 }
 
-Button::Button(sf::Vector2f size, sf::Vector2f pos, sf::Color fillColour, sf::Text oText, ButtonType type)
+consolebuttons::consolebuttons(sf::Vector2f size, sf::Vector2f pos, sf::Color fillColour, sf::Text oText, ButtonType type)
 {
     rectShape = sf::RectangleShape(size);
     rectShape.setPosition(pos);
