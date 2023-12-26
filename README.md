@@ -6,7 +6,7 @@ Welcome to the game of wordle, a simple yet fun application for time pass.
 
 - **Objective:**
   - The user has to guess a randomly generated five letter english word.
-  - The user gets five tries to correctly guess the word.
+  - The user gets six tries to correctly guess the word.
     
 - **How to play:**
   - The user gets five tries to correctly guess the word.
